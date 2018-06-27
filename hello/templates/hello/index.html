@@ -9,27 +9,18 @@
 </head>
 <body>
     <h1>{{title}}</h1>
-    <p>{{message|safe}}</p>
     <table>
         <tr>
-            <th>ID</th>
-            <th>NAME</th>
-            <th>GENDER</th>
-            <th>MAIL</th>
-            <th>AGE</th>
-            <th>BIRTHDAY</th>
+            <th>data</th>
+            <th></th>
+            <th></th>
         </tr>
     {% for item in data %}
         <tr>
-            <td>{{item.id}}</td>
-            <td>{{item.name}}</td>
-            <td>{% if item.gender == False %}male{% endif %}
-                {% if item.gender == True %}female{% endif %}</td>
-            <td>{{item.mail}}</td>
-            <td>{{item.age}}</td>
-            <td>{{item.birthday}}</td>
+            <td>{{item}}</td>
+            <td><a href="{% url 'edit' item.id %}">Edit</a></td>
+            <td><a href="{% url 'delete' item.id %}">Delete</a></td>
         <tr>
     {% endfor %}
     </table>
 </body>
-</html>
